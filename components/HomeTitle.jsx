@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { Button } from "./ui/Styled";
@@ -8,8 +9,12 @@ export default function HomeTitle() {
       <div>
         <h1>Artist, Designer and Creative</h1>
         <ButtonWrapper>
-          <Button>MY WORK</Button>
-          <Button primary>CONTACT US</Button>
+          <Link href="/gallery">
+            <Button>MY WORK</Button>
+          </Link>
+          <Link href="/contact">
+            <Button primary>CONTACT ME</Button>
+          </Link>
         </ButtonWrapper>
       </div>
     </TitleWrapper>
@@ -17,7 +22,7 @@ export default function HomeTitle() {
 }
 
 const TitleWrapper = styled.main`
-  height: calc(100vh - 210px); // viewport height - header + footer
+  height: calc(100vh - 185px); // viewport height - header + footer
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -32,7 +37,6 @@ const TitleWrapper = styled.main`
 
   // theme styling
   color: ${({ theme: { colors } }) => colors.honeydew};
-  font-family: ${({ theme: { fonts } }) => fonts[0]};
 `;
 
 const ButtonWrapper = styled.div`

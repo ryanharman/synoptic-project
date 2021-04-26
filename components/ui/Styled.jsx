@@ -21,8 +21,8 @@ export const Button = styled.button`
 
   box-shadow: ${({ primary }) =>
     primary
-      ? null
-      : "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)"};
+      ? "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)"
+      : null};
 
   // theme styling
   color: ${({ primary, theme: { colors } }) =>
@@ -30,7 +30,6 @@ export const Button = styled.button`
   background-color: ${({ primary, theme: { colors } }) =>
     primary ? colors.purple : colors.white};
   border: ${({ theme: { colors } }) => `2px solid ${colors.purple}`};
-  font-family: ${({ theme: { fonts } }) => fonts[0]};
 
   :hover {
     background-color: blue;
@@ -48,7 +47,6 @@ export const HeaderWrapper = styled.header`
 
   // theme styling
   color: ${({ theme: { colors } }) => colors.honeydew};
-  font-family: ${({ theme: { fonts } }) => fonts[0]};
 
   h1 {
     margin: 0;
@@ -69,5 +67,4 @@ export const Footer = styled.footer`
   // theme styling
   color: ${({ white, theme: { colors } }) =>
     white ? colors.honeydew : colors.purple};
-  font-family: ${({ theme: { fonts } }) => fonts[0]};
 `;

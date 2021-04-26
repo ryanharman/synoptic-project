@@ -27,6 +27,8 @@ const Theme = ({ children }) => (
 export default Theme;
 
 const ThemeReset = styled.div`
+  font-family: Roboto;
+
   body,
   h1,
   h2,

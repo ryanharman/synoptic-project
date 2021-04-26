@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FlexContainer, HeaderWrapper } from "./Styled";
+import Link from "next/link";
 
 // TODO: Improve aesthetic of the burger menu nav bar
 
@@ -14,16 +15,34 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <FlexContainer justify="space-between">
-        <div>
-          <h1>Ryan Harman</h1>
-          <p>Photography Blog</p>
-        </div>
+        <Link href="/">
+          <a>
+            <h1>Ryan Harman</h1>
+            <p>Photography Blog</p>
+          </a>
+        </Link>
         <Nav isOpen={open}>
           <ul>
-            <li>About</li>
-            <li>Blog</li>
-            <li>Gallery</li>
-            <li>Contact</li>
+            <Link href="/about">
+              <a>
+                <li>About</li>
+              </a>
+            </Link>
+            <Link href="/blog">
+              <a>
+                <li>Blog</li>
+              </a>
+            </Link>
+            <Link href="/gallery">
+              <a>
+                <li>Gallery</li>
+              </a>
+            </Link>
+            <Link href="/contact">
+              <a>
+                <li>Contact</li>
+              </a>
+            </Link>
           </ul>
           <Burger onClick={handleBurgerClick}>BURGER</Burger>
         </Nav>
@@ -46,8 +65,9 @@ const Nav = styled.nav`
     margin: 0;
     list-style-type: none;
 
-    li {
+    a {
       padding: 16px;
+      width: 100%;
     }
   }
 
