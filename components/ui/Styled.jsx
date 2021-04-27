@@ -78,3 +78,36 @@ export const ImgWrapper = styled.div`
     display: none;
   }
 `;
+
+// Styles for about page and contact
+
+export const ContentWrapper = styled.main`
+  height: calc(100vh - 185px); // viewport height - header + footer
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4em;
+  gap: 4em;
+`;
+
+export const Content = styled.section`
+  max-width: 50%;
+  align-self: center;
+
+  && h1 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+  }
+
+  && p {
+    font-size: 1.25em;
+  }
+
+  && ${Button} {
+    margin: 3em 2em 0 0;
+  }
+
+  @media screen and (max-width: 992px) {
+    max-width: 100%;
+  }
+`;

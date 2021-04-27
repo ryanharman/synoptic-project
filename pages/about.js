@@ -1,7 +1,12 @@
 import Head from "next/head";
-import styled from "styled-components";
 import Header from "../components/ui/Header";
-import { Button, Footer, ImgWrapper } from "../components/ui/Styled";
+import {
+  Button,
+  Content,
+  ContentWrapper,
+  Footer,
+  ImgWrapper,
+} from "../components/ui/Styled";
 import Image from "next/image";
 import Theme from "../components/ui/Theme";
 import Link from "next/link";
@@ -19,7 +24,7 @@ export default function About() {
         />
       </Head>
       <Header />
-      <AboutWrapper>
+      <ContentWrapper>
         <ImgWrapper>
           <Image
             alt="Image of me"
@@ -46,39 +51,8 @@ export default function About() {
             <Button primary>CONTACT ME</Button>
           </Link>
         </Content>
-      </AboutWrapper>
+      </ContentWrapper>
       <Footer>©2021 by Ryan Harman</Footer>
     </Theme>
   );
 }
-
-const AboutWrapper = styled.main`
-  height: calc(100vh - 185px); // viewport height - header + footer
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 4em;
-  gap: 4em;
-`;
-
-const Content = styled.section`
-  max-width: 50%;
-  align-self: center;
-
-  h1 {
-    font-size: 2.5em;
-    margin-bottom: 1em;
-  }
-
-  p {
-    font-size: 1.25em;
-  }
-
-  ${Button} {
-    margin: 3em 2em 0 0;
-  }
-
-  @media screen and (max-width: 992px) {
-    max-width: 100%;
-  }
-`;

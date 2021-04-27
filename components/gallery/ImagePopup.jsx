@@ -27,7 +27,7 @@ const Popup = styled.div`
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 10;
   :after {
-    content: "Click anywhere to cancel";
+    content: "Click anywhere to close";
     color: ${({ theme: { colors } }) => colors.honeydew};
     margin-top: 1em;
   }
