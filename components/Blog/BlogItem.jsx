@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import { ImgWrapper } from "./ui/Styled";
+import { ImgWrapper } from "../ui/Styled";
 
 export default function BlogItem({ img, children }) {
   return (
