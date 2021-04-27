@@ -10,10 +10,12 @@ export default function HomeTitle() {
         <h1>Artist, Designer and Creative</h1>
         <ButtonWrapper>
           <Link href="/gallery">
-            <Button>MY WORK</Button>
+            <Button transparent>MY WORK</Button>
           </Link>
           <Link href="/contact">
-            <Button primary>CONTACT ME</Button>
+            <Button primary transparent>
+              CONTACT ME
+            </Button>
           </Link>
         </ButtonWrapper>
       </div>

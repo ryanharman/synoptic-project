@@ -18,6 +18,7 @@ export const Button = styled.button`
   font-weight: bold;
   padding: 0.75em 1.1em;
   border-radius: 3px;
+  transition: all 0.25s;
 
   box-shadow: ${({ primary }) =>
     primary
@@ -32,25 +33,24 @@ export const Button = styled.button`
   border: ${({ theme: { colors } }) => `2px solid ${colors.purple}`};
 
   :hover {
-    background-color: blue;
+    border: ${({ theme: { colors } }) => `2px solid ${colors.lightBlue}`};
+    color: ${({ theme: { colors } }) => colors.purple};
     cursor: pointer;
-  }
-`;
 
-export const HeaderWrapper = styled.header`
-  background-color: ${({ theme: { colors } }) => colors.purpleTransparent};
-  height: 110px;
-  padding: 10px 32px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  display: flex;
-  align-items: center;
+    ${({ primary, theme: { colors } }) =>
+      primary &&
+      `
+      color: ${colors.purple};
+      border: 2px solid ${colors.lightBlue};
+      background-color: transparent;
+    `}
 
-  // theme styling
-  color: ${({ theme: { colors } }) => colors.honeydew};
-
-  h1 {
-    margin: 0;
-    padding: 0;
+    ${({ transparent, theme: { colors } }) =>
+      transparent &&
+      `
+    background-color: transparent;
+    color: ${colors.honeydew};
+    `}
   }
 `;
 
@@ -67,4 +67,14 @@ export const Footer = styled.footer`
   // theme styling
   color: ${({ white, theme: { colors } }) =>
     white ? colors.honeydew : colors.purple};
+`;
+
+export const ImgWrapper = styled.div`
+  max-height: 100%;
+  max-width: 50%;
+  overflow: hidden;
+
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 `;

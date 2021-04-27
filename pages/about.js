@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styled from "styled-components";
 import Header from "../components/ui/Header";
-import { Button, Footer } from "../components/ui/Styled";
+import { Button, Footer, ImgWrapper } from "../components/ui/Styled";
 import Image from "next/image";
 import Theme from "../components/ui/Theme";
 import Link from "next/link";
@@ -26,7 +26,6 @@ export default function About() {
             src="/photographer-portrait.jpg"
             width={1920}
             height={2880}
-            responsive
           />
         </ImgWrapper>
         <Content>
@@ -44,7 +43,7 @@ export default function About() {
             <Button>MY WORK</Button>
           </Link>
           <Link href="/contact">
-            <Button primary>CONTACT US</Button>
+            <Button primary>CONTACT ME</Button>
           </Link>
         </Content>
       </AboutWrapper>
@@ -62,12 +61,6 @@ const AboutWrapper = styled.main`
   gap: 4em;
 `;
 
-const ImgWrapper = styled.div`
-  max-height: 100%;
-  max-width: 50%;
-  overflow: hidden;
-`;
-
 const Content = styled.section`
   max-width: 50%;
   align-self: center;
@@ -83,5 +76,9 @@ const Content = styled.section`
 
   ${Button} {
     margin: 3em 2em 0 0;
+  }
+
+  @media screen and (max-width: 992px) {
+    max-width: 100%;
   }
 `;

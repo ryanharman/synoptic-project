@@ -1,10 +1,18 @@
 import Head from "next/head";
+import { useState } from "react";
 import styled from "styled-components";
+import GalleryView from "../components/gallery/GalleryView";
 import Header from "../components/ui/Header";
 import { Button, Footer } from "../components/ui/Styled";
 import Theme from "../components/ui/Theme";
 
 export default function Gallery() {
+  const [filter, setFilter] = useState("all");
+
+  function handleFilterChange(selected) {
+    setFilter(selected);
+  }
+
   return (
     <Theme>
       <Head>
@@ -19,12 +27,30 @@ export default function Gallery() {
       <Header />
       <GalleryWrapper>
         <ButtonWrapper>
-          <Button primary>All Images</Button>
-          <Button>Tech Images</Button>
-          <Button>Portraits</Button>
+          <Button
+            onClick={() => {
+              handleFilterChange("all");
+            }}
+          >
+            All Images
+          </Button>
+          <Button
+            onClick={() => {
+              handleFilterChange("tech");
+            }}
+          >
+            Tech Images
+          </Button>
+          <Button
+            onClick={() => {
+              handleFilterChange("nature");
+            }}
+          >
+            Nature
+          </Button>
         </ButtonWrapper>
+        <GalleryView selected={filter} />
       </GalleryWrapper>
-      <Footer>©2021 by Ryan Harman</Footer>
     </Theme>
   );
 }
@@ -36,9 +62,11 @@ const GalleryWrapper = styled.main`
   flex-direction: column;
   align-items: flex-start;
   padding: 2em;
+  margin-bottom: 5em;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 2em;
+  margin-bottom: 2em;
 `;
