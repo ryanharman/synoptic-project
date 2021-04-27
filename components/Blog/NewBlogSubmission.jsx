@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Form, TextInput } from "./styled";
 import { handleBlogSubmit } from "./utils";
+import { Button } from "../ui/Styled";
 
 export default function NewBlogSubmission() {
   const [title, setTitle] = useState("");
@@ -19,28 +21,35 @@ export default function NewBlogSubmission() {
   }
 
   return (
-    <form onSubmit={() => handleBlogSubmit(title, content, date)}>
+    <Form onSubmit={() => handleBlogSubmit(title, content, date)}>
+      <h1>Create a new blog post</h1>
       <div>
-        <label>
-          Title
-          <input type="text" value={title} onChange={handleTitleChange}></input>
-        </label>
-        <label>
-          Content
-          <textarea
-            type="text"
-            value={content}
-            onChange={handleContentChange}
-          ></textarea>
-        </label>
-        <label>
-          Date
-          <input type="date" value={date} onChange={handleDateChange}></input>
-        </label>
-        <button type="submit" value="Submit">
-          Submit
-        </button>
+        <label>Title</label>
+        <TextInput
+          type="text"
+          value={title}
+          onChange={handleTitleChange}
+        ></TextInput>
       </div>
-    </form>
+      <div>
+        <label>Content</label>
+        <TextInput
+          type="text"
+          value={content}
+          onChange={handleContentChange}
+        ></TextInput>
+      </div>
+      <div>
+        <label>Date</label>
+        <TextInput
+          type="date"
+          value={date}
+          onChange={handleDateChange}
+        ></TextInput>
+      </div>
+      <Button primary type="submit" value="Submit">
+        Submit
+      </Button>
+    </Form>
   );
 }
