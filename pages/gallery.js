@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import styled from "styled-components";
 import GalleryView from "../components/gallery/GalleryView";
+import ImagePopup from "../components/gallery/ImagePopup";
 import Header from "../components/ui/Header";
 import { Button, Footer } from "../components/ui/Styled";
 import Theme from "../components/ui/Theme";
@@ -11,6 +12,21 @@ export default function Gallery() {
 
   function handleFilterChange(selected) {
     setFilter(selected);
+  }
+
+  // state used to manage the individual image clicks
+  const [viewImage, setViewImage] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedAlt, setSelectedAlt] = useState("");
+
+  function handleImageSelection(src, alt) {
+    setSelectedImage(src);
+    setSelectedAlt(alt);
+    setViewImage(true);
+  }
+
+  function closeImageView() {
+    setViewImage(false);
   }
 
   return (
@@ -49,7 +65,13 @@ export default function Gallery() {
             Nature
           </Button>
         </ButtonWrapper>
-        <GalleryView selected={filter} />
+        <GalleryView selected={filter} onImageClick={handleImageSelection} />{" "}
+        <ImagePopup
+          src={selectedImage}
+          alt={selectedAlt}
+          visible={viewImage}
+          close={closeImageView}
+        />
       </GalleryWrapper>
     </Theme>
   );
@@ -57,12 +79,10 @@ export default function Gallery() {
 
 const GalleryWrapper = styled.main`
   width: 100%auto;
-  height: calc(100vh - 185px); // viewport height - header + footer
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2em;
-  margin-bottom: 5em;
 `;
 
 const ButtonWrapper = styled.div`

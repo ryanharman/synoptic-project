@@ -2,11 +2,11 @@ import React from "react";
 import NatureImages from "./NatureImages";
 import TechImages from "./TechImages";
 
-export default function GalleryView({ selected }) {
+export default function GalleryView({ selected, onImageClick }) {
   if (selected === "nature") {
     return (
       <>
-        <NatureImages />
+        <NatureImages onImageClick={onImageClick} />
       </>
     );
   }
@@ -14,15 +14,15 @@ export default function GalleryView({ selected }) {
   if (selected === "tech") {
     return (
       <>
-        <TechImages />
+        <TechImages onImageClick={onImageClick} />
       </>
     );
   }
 
   return (
     <>
-      <TechImages />
-      <NatureImages />
+      <TechImages onImageClick={onImageClick} />
+      <NatureImages onImageClick={onImageClick} />
     </>
   );
 }
