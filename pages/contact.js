@@ -27,9 +27,9 @@ export default function Contact() {
         <ImgWrapper>
           <Image
             alt="Image of me"
-            src="/photographer-portrait.jpg"
+            src="/onthephone.jpg"
             width={1920}
-            height={2880}
+            height={2560}
           />
         </ImgWrapper>
         <Content>
